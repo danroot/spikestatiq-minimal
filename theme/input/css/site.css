@@ -1,0 +1,23 @@
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme=light]) {
+        --primary: #1DB3E2;
+    }
+
+    nav a{
+        color: #fff;
+    }
+
+    [role=button], button, input[type=button], input[type=reset], input[type=submit] {
+        --background-color: var(--secondary);
+        --border-color: var(--secondary);
+        --color: var(--secondary-inverse);
+    }
+}
+
+main.container {
+    padding-top: 0;
+}
+h1,h2,h3,h4,h5,h6{
+    margin-bottom: .4em;
+
+}

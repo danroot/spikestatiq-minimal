@@ -1,0 +1,12 @@
+SiteTitle: Bare. Minimum. Code.
+PageTitle: |
+  =>
+  {
+    string siteTitle = Context.GetString("SiteTitle");
+    string title = GetString("Title");
+    return string.IsNullOrWhiteSpace(siteTitle) ? title : (string.IsNullOrWhiteSpace(title) ? siteTitle : $"{siteTitle} - {title}");
+  }
+Copyright: => $"Copyright © {DateTime.Now.Year}"
+Layout: /_layout.cshtml
+PostSources: posts/**/*.md
+IsPost: => Outputs.FilterSources(Context.GetString("PostSources")).ContainsById(Document)

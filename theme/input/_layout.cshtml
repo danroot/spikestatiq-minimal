@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="A site for people who want to learn real-world software development.">
+
+    <title>Bare. Minimum. Code.</title>
+    <link rel="stylesheet" type="text/css" href='@Context.GetLink("css/pico.css")'>
+    <link rel="stylesheet" type="text/css" href='@Context.GetLink("css/site.css")'>
+</head>
+
+<body>
+
+    <main class="container">
+        <nav>
+            <ul>
+                <li><strong><a href="/">Bare. Minimum. Code.</a></strong></li>
+            </ul>
+            <ul>
+                <li><a href="/code">Code</a></li>
+                <li><a href="#">Video</a></li>
+                <li><a href="#">Book</a></li>
+                <li><a href="#" role="button">Subscribe</a></li>
+            </ul>
+        </nav>
+        @RenderBody()
+    </main>
+
+</body>
+
+</html>

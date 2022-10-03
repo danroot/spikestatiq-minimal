@@ -1,0 +1,37 @@
+ArchiveSources: => $"posts/**/*.md"
+ArchiveDestination: >
+  => GetInt("Index") <= 1 ? $"index.html" : $"index{GetInt("Index")}.html"
+ArchivePageSize: => 3
+ArchiveOrderKey: Published
+ArchiveOrderDescending: true
+Title: All Posts
+ArchiveTitle: >
+  => $"{GetString("Title")}{(GetInt("Index") > 1 ? (" (Page " + GetInt("Index") + ")") : null)}"
+---
+@foreach(var doc in Model.GetChildren()){
+    <div class="post">
+        <h2><a href='@Context.GetLink(doc)'>@doc?.GetTitle()</a></h2>    
+        <p>@doc.GetString("Description")</p>    
+    </div>
+}
+@{
+    IDocument older = Document.GetDocument(Keys.Next);
+    IDocument newer = Document.GetDocument(Keys.Previous);
+}
+@if (older != null || newer != null)
+{
+    <div class="d-flex flex-row justify-content-between">
+        <div>
+            @if (older != null)
+            {
+                <a href="@Context.GetLink(older)">Older</a>
+            }
+        </div>
+        <div>
+            @if (newer != null)
+            {
+                <a href="@Context.GetLink(newer)">Newer</a>
+            }
+        </div>
+    </div>
+}
